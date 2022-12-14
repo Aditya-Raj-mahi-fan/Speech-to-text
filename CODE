@@ -1,0 +1,10 @@
+import speech_recognition as sr
+from gtts import gTTS
+
+r = sr.Recognizer()
+with sr.Microphone() as input:
+    audio2 = r.listen(input)
+    MyText = r.recognize_google(audio2)
+    print(MyText)
+    voice = gTTS(text=MyText,slow=False)
+    voice.save("Rama.mp3")
